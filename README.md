@@ -49,9 +49,11 @@ A small full-stack marketplace starter with a React/Vite storefront, an Express 
 
 ## Deploy on Render
 
-The root `render.yaml` Blueprint deploys the React storefront as a static site and the Express API as a web service. The API uses a 1 GB persistent disk for SQLite, so its Render service requires a paid instance. The Blueprint generates a `JWT_SECRET` and connects the frontend and API automatically. The optional Python analytics service is not included in this Blueprint.
+The root `render.yaml` Blueprint deploys the React storefront as a free static site and the Express API as a free web service. The Blueprint generates a `JWT_SECRET` and connects the frontend and API automatically. The optional Python analytics service is not included in this Blueprint.
 
-Push the repository to GitHub, then in Render choose **New > Blueprint**, connect `rmrose338-gif/MTAA-MARKET`, select the `main` branch, review the services and disk, and deploy. To enable the administrator console, set `ADMIN_EMAIL` and `ADMIN_PASSWORD` in the API service's Render environment before its first startup. Add M-Pesa credentials in the API service environment only if enabling STK Push; do not put secrets in `render.yaml` or Git.
+This free deployment uses SQLite on the API's ephemeral filesystem. **Users, products, orders, and other database changes may be lost when the service restarts, spins down, or redeploys.** Use this setup for a demo, not production data that must be retained. Render's free web service may spin down after inactivity, so the first request can take time to respond.
+
+Push the repository to GitHub, then in Render choose **New > Blueprint**, connect `rmrose338-gif/MTAA-MARKET`, select the `main` branch, review the free services, and deploy. To enable the administrator console, set `ADMIN_EMAIL` and `ADMIN_PASSWORD` in the API service's Render environment before its first startup. Add M-Pesa credentials in the API service environment only if enabling STK Push; do not put secrets in `render.yaml` or Git.
 
 ## Demo
 

@@ -2,15 +2,11 @@ services:
   - type: web
     name: mtaa-market-api
     runtime: node
-    plan: 0.5c-512mb
+    plan: free
     rootDir: backend/api
     buildCommand: npm ci
     startCommand: npm start
     healthCheckPath: /api/health
-    disk:
-      name: mtaa-market-data
-      mountPath: /var/data
-      sizeGB: 1
     envVars:
       - key: NODE_VERSION
         value: 22.12.0
@@ -18,8 +14,6 @@ services:
         value: production
       - key: JWT_SECRET
         generateValue: true
-      - key: MTAA_DATABASE_PATH
-        value: /var/data/mtaa_market.db
       - key: FRONTEND_ORIGIN
         fromService:
           type: web
