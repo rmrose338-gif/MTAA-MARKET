@@ -1,0 +1,29 @@
+.product-option-field {
+  display: grid;
+  gap: 7px;
+  max-width: 320px;
+  margin: 14px 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.product-option-field select {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.cart-item-info>small,
+.checkout-item small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.cart-item-info>small {
+  display: block;
+}

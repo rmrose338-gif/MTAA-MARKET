@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" rx="36" fill="#e9f0e2"/>
+  <circle cx="650" cy="170" r="115" fill="#cad9be"/>
+  <path d="M170 220h460l52 644H118z" fill="#b98547"/>
+  <path d="M170 220h460l-23 96H193z" fill="#805731"/>
+  <path d="M148 330h504v430H148z" fill="#fffaf0"/>
+  <path d="M148 330h504v108H148z" fill="#3f674b"/>
+  <text x="400" y="400" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="44" font-weight="700">DAIRY MEAL</text>
+  <path d="M278 548h62l31-31h122l31 31h28l22 40-12 94H258l-10-82z" fill="#eee7d9" stroke="#475647" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M371 517v164m53-164v164m53-164v164" stroke="#475647" stroke-width="9"/>
+  <path d="M277 551l-46-27-26 10 54 50m336-33 42-25 25 14-48 51" fill="#eee7d9" stroke="#475647" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M262 681l-10 25h75l8-25m242 0 8 25h75l-10-25" fill="#475647"/>
+  <path d="M350 574h95v62h-95z" fill="#aebf8b"/>
+  <text x="397" y="617" text-anchor="middle" fill="#334735" font-family="Arial,sans-serif" font-size="25" font-weight="700">COW</text>
+  <text x="400" y="817" text-anchor="middle" fill="#fffaf0" font-family="Arial,sans-serif" font-size="30" font-weight="700">BALANCED CATTLE FEED</text>
+</svg>

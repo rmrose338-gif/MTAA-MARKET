@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" rx="36" fill="#f3e8d8"/>
+  <circle cx="640" cy="170" r="112" fill="#e4cda6"/>
+  <path d="M170 220h460l52 644H118z" fill="#bd7745"/>
+  <path d="M170 220h460l-23 96H193z" fill="#75492f"/>
+  <path d="M148 330h504v430H148z" fill="#fff8eb"/>
+  <path d="M148 330h504v108H148z" fill="#6d5537"/>
+  <text x="400" y="400" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="44" font-weight="700">CHICKEN FEED</text>
+  <path d="M400 535c-51-53-118-19-100 40 12 38 55 53 100 48 45 5 88-10 100-48 18-59-49-93-100-40z" fill="#bd7745"/>
+  <path d="M400 529c-16-57 3-99 31-119-2 34-1 48 20 64-1-42 21-62 50-67-18 29-20 54-3 78 39 55 7 125-58 138z" fill="#a33b2d"/>
+  <path d="M432 552l68 14-50 21" fill="#df9e36"/>
+  <circle cx="438" cy="545" r="6" fill="#302920"/>
+  <text x="400" y="692" text-anchor="middle" fill="#6d5537" font-family="Arial,sans-serif" font-size="34" font-weight="700">1 kg PACK</text>
+  <text x="400" y="817" text-anchor="middle" fill="#fff8eb" font-family="Arial,sans-serif" font-size="30" font-weight="700">FOR BACKYARD FLOCKS</text>
+</svg>

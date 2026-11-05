@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title description">
+  <title id="title">Sunlight lemon dishwashing liquid bottle</title>
+  <desc id="description">Green 500 millilitre bottle of dishwashing liquid with lemon graphic</desc>
+  <defs><linearGradient id="bottle" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#43b843"/><stop offset=".55" stop-color="#159442"/><stop offset="1" stop-color="#08763a"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="16" stdDeviation="15" flood-opacity=".25"/></filter></defs>
+  <rect width="640" height="640" fill="#f5f7ef"/><ellipse cx="320" cy="569" rx="155" ry="25" fill="#d7dccf"/>
+  <g filter="url(#shadow)"><path d="M260 103h120v76l46 55v304H214V234l46-55z" fill="url(#bottle)"/><rect x="254" y="69" width="132" height="61" rx="10" fill="#e5c40a"/><path d="M272 69V42h96v27" fill="#fff"/><path d="M350 42h70v25h-70z" fill="#f1cb12"/></g>
+  <rect x="219" y="268" width="202" height="181" rx="18" fill="#fff"/><text x="320" y="328" text-anchor="middle" font-family="Arial Black,Arial" font-size="47" font-weight="900" fill="#08763a">SUNLIGHT</text>
+  <ellipse cx="320" cy="374" rx="61" ry="30" fill="#ffe24a"/><path d="M320 344v60M290 359l60 30M290 389l60-30" stroke="#fff" stroke-width="6"/>
+  <text x="320" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#08763a">DISHWASHING LIQUID</text>
+  <text x="320" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#fff">500 ml</text>
+</svg>

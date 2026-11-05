@@ -1,0 +1,17 @@
+.payment-page{display:grid;place-items:start center}
+.payment-card{width:min(100%,620px);padding:30px;border:1px solid var(--line);border-radius:10px;background:white;box-shadow:0 12px 32px #1a39220c}
+.payment-card h1{margin:0 0 12px;font-family:"Playfair Display",serif;font-size:clamp(28px,5vw,38px);letter-spacing:-.8px}
+.payment-card>p{color:var(--muted);font-size:13px;line-height:1.7}
+.payment-card>p strong{color:var(--green)}
+.payment-status{margin:24px 0;padding:18px;border:1px solid var(--line);border-radius:8px;background:#fbfaf6}
+.payment-status-heading{display:flex;align-items:center;gap:10px;color:var(--ink);text-transform:capitalize}
+.payment-status-indicator{width:11px;height:11px;border-radius:50%;background:#c88a29}
+.payment-status p{margin:10px 0 0;color:var(--muted);font-size:12px;line-height:1.65}
+.payment-status-paid{border-color:#b9d2c7;background:#f2f8f3}
+.payment-status-paid .payment-status-indicator{background:var(--green)}
+.payment-status-failed{border-color:#e9c2b9;background:#fff7f4}
+.payment-status-failed .payment-status-indicator{background:#b34d36}
+.payment-status .payment-receipt{color:var(--ink)}
+.payment-status .button{margin-top:14px}
+.payment-safety-note{padding:12px;border-radius:6px;background:#f7f4eb}
+@media(max-width:600px){.payment-card{padding:22px}}

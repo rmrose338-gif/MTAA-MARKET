@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" rx="36" fill="#f3eadc"/>
+  <circle cx="640" cy="170" r="115" fill="#e1cfb5"/>
+  <path d="M170 220h460l52 644H118z" fill="#bd7a3d"/>
+  <path d="M170 220h460l-23 96H193z" fill="#87502f"/>
+  <path d="M148 330h504v430H148z" fill="#fff8e9"/>
+  <path d="M148 330h504v108H148z" fill="#42654b"/>
+  <text x="400" y="400" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="44" font-weight="700">DOG FOOD</text>
+  <path d="M300 577c-8-50 13-84 47-84 28 0 40 22 53 22s25-22 53-22c34 0 55 34 47 84l-13 67c-7 32-37 47-64 31l-23-14-23 14c-27 16-57 1-64-31z" fill="#bd7a3d"/>
+  <path d="M331 512c-30-10-47-39-43-70 31 4 54 24 61 53m120 17c30-10 47-39 43-70-31 4-54 24-61 53" fill="#87502f"/>
+  <circle cx="372" cy="551" r="7" fill="#302920"/><circle cx="428" cy="551" r="7" fill="#302920"/>
+  <ellipse cx="400" cy="583" rx="28" ry="20" fill="#f3eadc"/>
+  <path d="M350 692h100" stroke="#42654b" stroke-width="12" stroke-linecap="round"/>
+  <text x="400" y="817" text-anchor="middle" fill="#fff8e9" font-family="Arial,sans-serif" font-size="30" font-weight="700">COMPLETE PET NUTRITION</text>
+</svg>

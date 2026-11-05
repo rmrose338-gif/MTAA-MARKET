@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#efe8d8"/><stop offset="1" stop-color="#d6c6a9"/></linearGradient></defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <circle cx="172" cy="190" r="95" fill="#fff" opacity=".33"/>
+  <path d="M140 1000c22-177 94-274 260-319 166 45 238 142 260 319z" fill="#385a50"/>
+  <path d="M281 439c24-62 73-98 119-108l50 50 50-50c46 10 95 46 119 108l48 156-93 35-41-91-12 146H279l-12-146-41 91-93-35z" fill="#d1a26d"/>
+  <path d="M354 316c7 43 23 67 46 67s39-24 46-67v-43h-92z" fill="#704934"/>
+  <ellipse cx="400" cy="220" rx="101" ry="132" fill="#88583f"/>
+  <path d="M298 230c-8-104 36-177 108-177 78 0 112 63 97 166-31-12-57-38-78-76-30 43-72 69-127 87z" fill="#231e1c"/>
+  <path d="M352 220h20m56 0h20" stroke="#3b291e" stroke-width="7" stroke-linecap="round"/>
+  <path d="M377 280c14 11 32 11 46 0" fill="none" stroke="#4b2d22" stroke-width="7" stroke-linecap="round"/>
+  <path d="M400 392l-63 264h126z" fill="#f4eee0"/>
+  <path d="M285 455l115 55 115-55m-115 55v197" fill="none" stroke="#fff1d2" stroke-width="9"/>
+  <circle cx="419" cy="517" r="7" fill="#88583f"/><circle cx="419" cy="555" r="7" fill="#88583f"/><circle cx="419" cy="593" r="7" fill="#88583f"/>
+  <path d="M145 594l86 34-36 90-103-38zm510 0l-86 34 36 90 103-38z" fill="#88583f"/>
+</svg>
