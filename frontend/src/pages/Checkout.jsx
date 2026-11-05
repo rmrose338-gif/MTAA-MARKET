@@ -142,7 +142,7 @@ export default function Checkout() {
                   <small>{t("We’ll send an STK Push to your phone. Enter your M-Pesa PIN only on your phone; never share it here. The request includes the estimated delivery fee.")}</small>
                   {paymentOptions?.mpesa_stk_enabled === false && (
                     <small>
-                      {t("M-Pesa checkout is unavailable. Configure these API settings in express-backend/.env, then restart the API:")}
+                      {t("M-Pesa checkout is unavailable. Configure these API settings in backend/api/.env, then restart the API:")}
                       {" "}{paymentOptions.mpesa_missing_settings.join(", ")}.
                       {" "}{t("The callback URL must be a publicly reachable HTTPS address.")}
                     </small>

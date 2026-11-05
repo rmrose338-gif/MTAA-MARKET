@@ -13,15 +13,15 @@ A small full-stack marketplace starter with a React/Vite storefront, an Express 
 1. Start the API:
 
    ```powershell
-   cd express-backend
+   cd backend/api
    Copy-Item .env.example .env
    npm install
    npm run dev
    ```
 
-   The API runs at `http://localhost:5000`. It creates and seeds `database/mtaa_market.db` on first startup. Set `MTAA_DATABASE_PATH` in `.env` to store the database elsewhere.
+   The API runs at `http://localhost:5000`. It creates and seeds `backend/database/mtaa_market.db` on first startup. Set `MTAA_DATABASE_PATH` in `.env` to store the database elsewhere.
 
-   To enable the administrator console, set `ADMIN_EMAIL` and `ADMIN_PASSWORD` in `express-backend/.env` before the first API start. Use an email you control and a unique password of 12–72 characters. The first configured admin is created once; public customer/seller registration cannot create an administrator. If no administrator exists, `/admin/login` also offers one-time first-admin setup with an email and new password. Once created, setup is disabled; additional admins and password changes are managed in the protected admin Settings page. The console is available at `/admin/login`.
+   To enable the administrator console, set `ADMIN_EMAIL` and `ADMIN_PASSWORD` in `backend/api/.env` before the first API start. Use an email you control and a unique password of 12–72 characters. The first configured admin is created once; public customer/seller registration cannot create an administrator. If no administrator exists, `/admin/login` also offers one-time first-admin setup with an email and new password. Once created, setup is disabled; additional admins and password changes are managed in the protected admin Settings page. The console is available at `/admin/login`.
 
 2. In another terminal, start the website:
 
@@ -38,7 +38,7 @@ A small full-stack marketplace starter with a React/Vite storefront, an Express 
 3. Optional analytics service:
 
    ```powershell
-   cd python-service
+   cd backend/python-service
    python -m venv .venv
    .\.venv\Scripts\Activate.ps1
    pip install -r requirements.txt
@@ -53,7 +53,7 @@ Customers must create a buyer account or sign in before they can browse the shop
 
 ### Enable M-Pesa STK Push
 
-1. Register for Safaricom Daraja API access and obtain a shortcode, consumer key/secret, and STK passkey. Copy `express-backend/.env.example` to `express-backend/.env` and set `MPESA_ENV=sandbox` plus `MPESA_CONSUMER_KEY`, `MPESA_CONSUMER_SECRET`, `MPESA_SHORTCODE`, and `MPESA_PASSKEY`.
+1. Register for Safaricom Daraja API access and obtain a shortcode, consumer key/secret, and STK passkey. Copy `backend/api/.env.example` to `backend/api/.env` and set `MPESA_ENV=sandbox` plus `MPESA_CONSUMER_KEY`, `MPESA_CONSUMER_SECRET`, `MPESA_SHORTCODE`, and `MPESA_PASSKEY`.
 2. Expose the API through a publicly reachable HTTPS URL (for local testing, use an HTTPS tunnel such as Cloudflare Tunnel or ngrok). Set `MPESA_CALLBACK_URL` to `https://your-public-api.example/api/payments/mpesa/callback` and set `MPESA_CALLBACK_TOKEN` to a unique random string of at least 32 characters. The app adds this token to the callback URL to reject unauthenticated callback attempts. A localhost URL cannot receive Daraja callbacks.
 3. Restart the API. The M-Pesa checkout option sends the order total plus the selected estimated delivery fee to the customer's Kenyan phone. Customers approve the prompt on their device; the app records `pending`, `paid`, or `failed` based on the callback and displays the M-Pesa receipt when confirmed. Failed or declined prompts can be retried from the order confirmation.
 4. Use Daraja sandbox test credentials and numbers while testing. Switch `MPESA_ENV=production` only with production credentials and a production-ready HTTPS deployment. Never ask customers to enter their M-Pesa PIN on this website.
