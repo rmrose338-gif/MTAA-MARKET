@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+import { API_URL } from "./api.js";
 const TOKEN_KEY = "mtaa_admin_token";
 
 export function clearAdminToken() {

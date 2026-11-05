@@ -47,6 +47,12 @@ A small full-stack marketplace starter with a React/Vite storefront, an Express 
 
    It listens on `http://localhost:8000`; the Express analytics endpoint proxies to it when `PYTHON_SERVICE_URL` is configured.
 
+## Deploy on Render
+
+The root `render.yaml` Blueprint deploys the React storefront as a static site and the Express API as a web service. The API uses a 1 GB persistent disk for SQLite, so its Render service requires a paid instance. The Blueprint generates a `JWT_SECRET` and connects the frontend and API automatically. The optional Python analytics service is not included in this Blueprint.
+
+Push the repository to GitHub, then in Render choose **New > Blueprint**, connect `rmrose338-gif/MTAA-MARKET`, select the `main` branch, review the services and disk, and deploy. To enable the administrator console, set `ADMIN_EMAIL` and `ADMIN_PASSWORD` in the API service's Render environment before its first startup. Add M-Pesa credentials in the API service environment only if enabling STK Push; do not put secrets in `render.yaml` or Git.
+
 ## Demo
 
 Customers must create a buyer account or sign in before they can browse the shop, add items to a cart, or place an order. The storefront and API both require buyer authentication for cart and order operations. Sellers create an account with a name, Kenyan mobile number, and password; no email address is needed. Existing email-based accounts can still sign in with their previous email address. At checkout, customers can choose sample boda boda delivery (KSh 150), an Uber delivery ride (KSh 350), or seller pickup. Sample arrival windows are shown at checkout and saved with the order; sellers confirm actual transport cost and timing. Customers can pay cash on delivery/pickup, send M-Pesa directly to the seller, or use an M-Pesa STK Push that confirms payment with Safaricom before the order is marked paid. The website does not book couriers or provide live tracking.

@@ -14,7 +14,10 @@ const { getSalesAnalysis } = require("./services/pythonService");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 const app = express();
-const allowedOrigin = process.env.FRONTEND_ORIGIN || "http://localhost:5173";
+const configuredOrigin = process.env.FRONTEND_ORIGIN || "http://localhost:5173";
+const allowedOrigin = /^https?:\/\//i.test(configuredOrigin)
+  ? configuredOrigin
+  : `https://${configuredOrigin}`;
 const allowedOrigins = [
   allowedOrigin,
   "http://localhost:5173",
