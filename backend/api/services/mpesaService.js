@@ -5,6 +5,7 @@ const endpoints = {
   sandbox: "https://sandbox.safaricom.co.ke",
   production: "https://api.safaricom.co.ke",
 };
+const transactionTypes = new Set(["CustomerPayBillOnline", "CustomerBuyGoodsOnline"]);
 
 function formatDarajaTimestamp(date = new Date()) {
   const parts = new Intl.DateTimeFormat("en-GB", {
@@ -23,6 +24,7 @@ function formatDarajaTimestamp(date = new Date()) {
 
 function getConfiguration() {
   const environment = process.env.MPESA_ENV || "sandbox";
+  const transactionType = process.env.MPESA_TRANSACTION_TYPE || "CustomerPayBillOnline";
   const callbackUrl = process.env.MPESA_CALLBACK_URL || "";
   const callbackToken = process.env.MPESA_CALLBACK_TOKEN || "";
   let validCallback = false;
@@ -34,6 +36,7 @@ function getConfiguration() {
   }
   const missingSettings = [];
   if (!endpoints[environment]) missingSettings.push("MPESA_ENV");
+  if (!transactionTypes.has(transactionType)) missingSettings.push("MPESA_TRANSACTION_TYPE");
   if (!process.env.MPESA_CONSUMER_KEY) missingSettings.push("MPESA_CONSUMER_KEY");
   if (!process.env.MPESA_CONSUMER_SECRET) missingSettings.push("MPESA_CONSUMER_SECRET");
   if (!/^\d+$/.test(process.env.MPESA_SHORTCODE || "")) missingSettings.push("MPESA_SHORTCODE");
@@ -43,6 +46,7 @@ function getConfiguration() {
   return {
     configured: missingSettings.length === 0,
     environment,
+    transactionType,
     callbackUrl,
     callbackToken,
     missingSettings,
@@ -103,7 +107,7 @@ async function initiateStkPush({ orderId, amount, phone }) {
       BusinessShortCode: shortcode,
       Password: password,
       Timestamp: timestamp,
-      TransactionType: "CustomerPayBillOnline",
+      TransactionType: config.transactionType,
       Amount: Math.max(1, Math.round(amount)),
       PartyA: normalizedPhone.replace("+", ""),
       PartyB: shortcode,

@@ -49,11 +49,11 @@ A small full-stack marketplace starter with a React/Vite storefront, an Express 
 
 ## Deploy on Render
 
-The root `render.yaml` Blueprint deploys the React storefront as a free static site and the Express API as a free web service. The Blueprint generates a `JWT_SECRET` and connects the frontend and API automatically. The optional Python analytics service is not included in this Blueprint.
+The root `render.yaml` Blueprint deploys the React storefront as a free static site and the Express API as a paid Starter web service with a 1 GB persistent disk. The Blueprint generates a `JWT_SECRET` and connects the frontend and API automatically. The optional Python analytics service is not included in this Blueprint. Review Render's current pricing before applying the Blueprint; the paid API instance and disk incur charges.
 
-This free deployment uses SQLite on the API's ephemeral filesystem. **Users, products, orders, and other database changes may be lost when the service restarts, spins down, or redeploys.** Use this setup for a demo, not production data that must be retained. Render's free web service may spin down after inactivity, so the first request can take time to respond.
+The API stores SQLite at `/var/data/mtaa_market.db` on the persistent disk. The disk survives service restarts and deploys, but it is attached to one API instance, so do not scale this SQLite service horizontally. Deleting the disk deletes its database; arrange and test backups before storing important order data. Applying this configuration does not copy data from the previous ephemeral database: the new database is initialized with the project's sample catalog, and existing accounts, orders, and other user changes are not migrated.
 
-Push the repository to GitHub, then in Render choose **New > Blueprint**, connect `rmrose338-gif/MTAA-MARKET`, select the `main` branch, review the free services, and deploy. To enable the administrator console, set `ADMIN_EMAIL` and `ADMIN_PASSWORD` in the API service's Render environment before its first startup. Add M-Pesa credentials in the API service environment only if enabling STK Push; do not put secrets in `render.yaml` or Git.
+Push the repository to GitHub, then in Render choose **New > Blueprint**, connect `rmrose338-gif/MTAA-MARKET`, select the `main` branch, review the paid API service and persistent disk, and deploy. If updating an existing service, review Render's Blueprint changes carefully before applying them. To enable the administrator console, set `ADMIN_EMAIL` and `ADMIN_PASSWORD` in the API service's Render environment before its first startup. Add M-Pesa credentials in the API service environment only if enabling STK Push; do not put secrets in `render.yaml` or Git.
 
 ## Demo
 
@@ -61,10 +61,10 @@ Customers must create a buyer account or sign in before they can browse the shop
 
 ### Enable M-Pesa STK Push
 
-1. Register for Safaricom Daraja API access and obtain a shortcode, consumer key/secret, and STK passkey. Copy `backend/api/.env.example` to `backend/api/.env` and set `MPESA_ENV=sandbox` plus `MPESA_CONSUMER_KEY`, `MPESA_CONSUMER_SECRET`, `MPESA_SHORTCODE`, and `MPESA_PASSKEY`.
+1. Register for Safaricom Daraja API access and obtain the credentials for your merchant account. Copy `backend/api/.env.example` to `backend/api/.env` and set `MPESA_ENV=sandbox` plus `MPESA_CONSUMER_KEY`, `MPESA_CONSUMER_SECRET`, `MPESA_SHORTCODE`, and `MPESA_PASSKEY`. Set `MPESA_TRANSACTION_TYPE=CustomerBuyGoodsOnline` for a Buy Goods Till, or `CustomerPayBillOnline` for a PayBill.
 2. Expose the API through a publicly reachable HTTPS URL (for local testing, use an HTTPS tunnel such as Cloudflare Tunnel or ngrok). Set `MPESA_CALLBACK_URL` to `https://your-public-api.example/api/payments/mpesa/callback` and set `MPESA_CALLBACK_TOKEN` to a unique random string of at least 32 characters. The app adds this token to the callback URL to reject unauthenticated callback attempts. A localhost URL cannot receive Daraja callbacks.
 3. Restart the API. The M-Pesa checkout option sends the order total plus the selected estimated delivery fee to the customer's Kenyan phone. Customers approve the prompt on their device; the app records `pending`, `paid`, or `failed` based on the callback and displays the M-Pesa receipt when confirmed. Failed or declined prompts can be retried from the order confirmation.
-4. Use Daraja sandbox test credentials and numbers while testing. Switch `MPESA_ENV=production` only with production credentials and a production-ready HTTPS deployment. Never ask customers to enter their M-Pesa PIN on this website.
+4. Use Daraja sandbox test credentials and numbers while testing. For live payments, first obtain Safaricom approval and production Daraja credentials for the merchant account, then set `MPESA_ENV=production` and the matching `MPESA_TRANSACTION_TYPE`. Confirm applicable transaction charges and settlement details with Safaricom. Persistent SQLite protects data across service restarts, but is not a substitute for tested backups, operational monitoring, and a reviewed production launch. Never ask customers to enter their M-Pesa PIN on this website.
 
 Checkout checks the API's public `/api/orders/payment-options` endpoint and disables M-Pesa STK Push when the required settings are missing. This endpoint never returns credentials. M-Pesa direct-to-seller remains a separate, unverified payment choice.
 
